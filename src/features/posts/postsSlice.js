@@ -15,8 +15,8 @@ export const fetchPosts = createAsyncThunk(
     // with second arg - dispatch, we can dispatch any Action objects from here like
 
     const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-    const fetchData = await response.json();
-    return fetchData
+    return await response.json();
+    // return fetchData
   }
   // createAsyncThunk will dispatch plain Action Creators for the pending, fulfilled & rejected
   // cases attached as nested fields. To handle these, thunk will be added to key - extraReducers below. 
