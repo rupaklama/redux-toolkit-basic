@@ -23,8 +23,7 @@ const todoSlice = createSlice({
       state.splice(index, 1)
       
       // note - if we want to return or create a whole new array state, not just modify one
-      // we need to 'return' from this function
-      return
+      // we need to 'return' from this function - return state.splice(index, 1)
     },
     
     // to update single element 
