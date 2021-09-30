@@ -15,9 +15,29 @@ const todoSlice = createSlice({
     },
 
     // delete reducer
-    del(state, {payload}) {
+    del(state, { payload: index }) { // renaming to index
       // use return here, it won't work without it
-      return state = state.filter(({id}) => id !== payload)
+      // return state = state.filter(({id}) => id !== payload)
+      
+      // doing same thing as above but with Immer way
+      state.splice(index, 1)
+      
+      // note - if we want to return or create a whole new array state, not just modify one
+      // we need to 'return' from this function
+      return
+    },
+    
+    // to update single element 
+    patch(state, {payload: { index, text } }) { // nested destructuring
+//       const index = action.payload.index;
+//       const txt = action.payload.txt;
+      state[index].text = txt;
+    },
+    
+    // to delete a single element
+    delete(state, {payload: {index, text}}) { 
+      // delete keyword/operator 
+      delete state[index].text
     }
 
   },
